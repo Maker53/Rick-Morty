@@ -14,6 +14,7 @@
 		85025743278FE01B00FCF96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85025742278FE01B00FCF96F /* Assets.xcassets */; };
 		85025746278FE01B00FCF96F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85025744278FE01B00FCF96F /* LaunchScreen.storyboard */; };
 		85025753278FE2F000FCF96F /* RickAndMorty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85025752278FE2F000FCF96F /* RickAndMorty.swift */; };
+		85025756278FEA7000FCF96F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85025755278FEA6F00FCF96F /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		85025745278FE01B00FCF96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85025747278FE01B00FCF96F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85025752278FE2F000FCF96F /* RickAndMorty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMorty.swift; sourceTree = "<group>"; };
+		85025755278FEA6F00FCF96F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		85025738278FE01800FCF96F /* Rick&Morty */ = {
 			isa = PBXGroup;
 			children = (
+				85025754278FEA5E00FCF96F /* Services */,
 				85025751278FE2CF00FCF96F /* Models */,
 				85025750278FE1EA00FCF96F /* View Controllers */,
 				8502574E278FE1C600FCF96F /* Storyboards */,
@@ -108,6 +111,14 @@
 				85025752278FE2F000FCF96F /* RickAndMorty.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		85025754278FEA5E00FCF96F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				85025755278FEA6F00FCF96F /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			files = (
 				85025753278FE2F000FCF96F /* RickAndMorty.swift in Sources */,
 				8502573E278FE01800FCF96F /* ViewController.swift in Sources */,
+				85025756278FEA7000FCF96F /* NetworkManager.swift in Sources */,
 				8502573A278FE01800FCF96F /* AppDelegate.swift in Sources */,
 				8502573C278FE01800FCF96F /* SceneDelegate.swift in Sources */,
 			);
