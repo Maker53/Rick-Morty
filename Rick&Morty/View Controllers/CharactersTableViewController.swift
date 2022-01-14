@@ -9,11 +9,14 @@ import UIKit
 
 class CharactersTableViewController: UITableViewController {
 
-    var rickAndMorty: RickAndMorty!
+    // MARK: - Private Properties
+    private var rickAndMorty: RickAndMorty!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.rowHeight = 70
+        
         fetchData(from: Link.link.rawValue)
     }
     
@@ -22,8 +25,9 @@ class CharactersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as! TableViewCell
+        let character = rickAndMorty.results[indexPath.row]
+        cell.configure(with: character)
         return cell
     }
     
