@@ -5,18 +5,18 @@
 //  Created by Станислав on 13.01.2022.
 //
 
-struct RickAndMorty {
+struct RickAndMorty: Decodable {
     let info: Info
     let results: [Character]
 }
 
-struct Info {
+struct Info: Decodable {
     let pages: Int
     let next: String?
     let prev: String?
 }
 
-struct Character {
+struct Character: Decodable {
     let id: Int
     let name: String
     let status: String
@@ -40,7 +40,7 @@ struct Character {
     }
 }
 
-struct Location {
+struct Location: Decodable {
     let name: String
 }
 
