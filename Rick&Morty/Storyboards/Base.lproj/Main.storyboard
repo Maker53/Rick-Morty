@@ -166,7 +166,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Episodes" id="Bae-ws-jSs"/>
                     <connections>
-                        <segue destination="XO6-JD-IXE" kind="show" identifier="EpisodeDetailCell" id="yFN-yq-Ras"/>
+                        <segue destination="XO6-JD-IXE" kind="show" identifier="showEpisode" id="R3W-as-bZd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cU8-5x-ntM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -253,6 +253,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WiS-Rk-MSe"/>
+                    <connections>
+                        <outlet property="episodeDetailLabel" destination="HDd-Ta-O2Y" id="1Fk-i8-Zy7"/>
+                        <outlet property="tableView" destination="9HO-mu-AZD" id="W4M-Lt-5F1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAN-j8-V4A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,21 +9,19 @@ import UIKit
 
 class EpisodeDetailViewController: UIViewController {
 
+    // MARK: - IB Outlets
+    @IBOutlet var episodeDetailLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
+    
+    // MARK: - Public Properties
+    var episode: Episode!
+    
+    // MARK: - Private Properties
+    private var characters: [Character] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print(episode.description)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
