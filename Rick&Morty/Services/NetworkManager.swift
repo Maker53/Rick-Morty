@@ -49,8 +49,6 @@ class ImageManager {
     func fetchImage(from url: String?) -> Data? {
         guard let stringURL = url else { return nil }
         guard let url = URL(string: stringURL) else { return nil }
-        guard let imageData = try? Data(contentsOf: url) else { return nil }
-        
-        return imageData
+        return try? Data(contentsOf: url)
     }
 }

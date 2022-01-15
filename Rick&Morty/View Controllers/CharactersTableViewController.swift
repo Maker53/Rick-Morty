@@ -44,12 +44,18 @@ class CharactersTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let character = isFiltering ? filteredCharacters[indexPath.row] : rickAndMorty?.results[indexPath.row]
+        guard let characterDetailsVC = segue.destination as? CharacterDetailsViewController else { return }
+        characterDetailsVC.character = character
+    }
+    
     @IBAction func updateData(_ sender: UIBarButtonItem) {
         sender.tag == 1
         ? fetchData(from: rickAndMorty?.info.next)
         : fetchData(from: rickAndMorty?.info.prev)
     }
-    
     
     // MARK: - Private Methods
     private func fetchData(from url: String?) {
