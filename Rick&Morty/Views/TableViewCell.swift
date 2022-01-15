@@ -21,9 +21,7 @@ class TableViewCell: UITableViewCell {
         characterFullName.text = character?.name
         
         DispatchQueue.global().async {
-            guard let stringURL = character?.image else { return }
-            guard let url = URL(string: stringURL) else { return }
-            guard let imageData = try? Data(contentsOf: url) else { return }
+            guard let imageData = ImageManager.shared.fetchImage(from: character?.image) else { return }
             DispatchQueue.main.async {
                 self.characterImage.image = UIImage(data: imageData)
             }
