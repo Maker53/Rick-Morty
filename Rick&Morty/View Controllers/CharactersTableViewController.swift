@@ -12,7 +12,16 @@ class CharactersTableViewController: UITableViewController {
     // MARK: - Private Properties
     private var rickAndMorty: RickAndMorty!
     private let searchController = UISearchController(searchResultsController: nil)
+    private var filteredCharacters = [Character]()
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        searchController.isActive && !searchBarIsEmpty
+    }
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,15 +31,14 @@ class CharactersTableViewController: UITableViewController {
         fetchData(from: Link.link.rawValue)
     }
     
-    // MARK: - Override Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rickAndMorty?.results.count ?? 0
+        isFiltering ? filteredCharacters.count : rickAndMorty?.results.count ?? 0
     }
     
     // MARK: - Table View Data Source
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as! TableViewCell
-        let character = rickAndMorty.results[indexPath.row]
+        let character = isFiltering ? filteredCharacters[indexPath.row] : rickAndMorty?.results[indexPath.row]
         cell.configure(with: character)
         return cell
     }
@@ -73,6 +81,14 @@ class CharactersTableViewController: UITableViewController {
 // MARK: - UISearchResultsUpdating
 extension CharactersTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredCharacters = rickAndMorty?.results.filter { character in
+            character.name.lowercased().contains(searchText.lowercased())
+        } ?? []
         
+        tableView.reloadData()
     }
 }
