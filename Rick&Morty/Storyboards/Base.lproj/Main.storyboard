@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,6 +51,7 @@
                                 <connections>
                                     <outlet property="characterFullName" destination="CSD-Qa-Di6" id="d7P-4M-ru7"/>
                                     <outlet property="characterImage" destination="hIJ-h6-Zxy" id="fjb-tw-hRr"/>
+                                    <segue destination="p7T-2m-ml8" kind="show" id="kJZ-p8-qHR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,6 +61,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Rick &amp; Morty" id="Jli-OW-QIT">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="wZf-LY-n5d"/>
                         <barButtonItem key="leftBarButtonItem" title="Prev" id="MZ7-GK-xSW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -76,6 +79,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3y-iQ-Ame" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="522" y="64"/>
+        </scene>
+        <!--Character Details View Controller-->
+        <scene sceneID="Ij6-Kl-UOa">
+            <objects>
+                <viewController id="p7T-2m-ml8" customClass="CharacterDetailsViewController" customModule="Rick_Morty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2fa-yE-vlO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Mw7-8n-OPp"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HcM-Wi-2rP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8H1-Bb-8wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Gw-YL-eJc">
