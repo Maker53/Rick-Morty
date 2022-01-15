@@ -57,7 +57,7 @@ struct Episode: Decodable {
         """
     }
     
-    enum CodinKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case name
         case date = "air_date"
         case episode
