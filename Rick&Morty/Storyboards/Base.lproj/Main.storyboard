@@ -60,11 +60,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Rick &amp; Morty" id="Jli-OW-QIT">
                         <barButtonItem key="leftBarButtonItem" title="Prev" id="MZ7-GK-xSW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="updateData:" destination="5sc-mB-BDB" id="7og-mC-W5p"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="bjQ-XK-glP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="updateData:" destination="5sc-mB-BDB" id="6ve-da-CKp"/>
                             </connections>
