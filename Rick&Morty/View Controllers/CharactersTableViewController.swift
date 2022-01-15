@@ -11,12 +11,14 @@ class CharactersTableViewController: UITableViewController {
 
     // MARK: - Private Properties
     private var rickAndMorty: RickAndMorty!
+    private let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.rowHeight = 70
         
+        setupSearchController()
         fetchData(from: Link.link.rawValue)
     }
     
@@ -53,5 +55,24 @@ class CharactersTableViewController: UITableViewController {
             }
         }
     }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = .boldSystemFont(ofSize: 17)
+            textField.textColor = .white
+        }
+    }
 }
 
+// MARK: - UISearchResultsUpdating
+extension CharactersTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
