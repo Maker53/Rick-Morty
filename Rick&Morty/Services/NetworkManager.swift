@@ -46,9 +46,15 @@ class ImageManager {
     
     private init() {}
     
-    func fetchImage(from url: String?) -> Data? {
-        guard let stringURL = url else { return nil }
-        guard let url = URL(string: stringURL) else { return nil }
-        return try? Data(contentsOf: url)
+    func fetchImage(from url: URL, completion: @escaping(Result<(Data, URLResponse), NetworkError>) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
+                completion(.failure(.noData))
+                return
+            }
+            DispatchQueue.main.async {
+                completion(.success((data,response)))
+            }
+        }.resume()
     }
 }
