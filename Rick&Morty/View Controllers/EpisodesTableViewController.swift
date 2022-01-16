@@ -44,6 +44,7 @@ class EpisodesTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = episodes[indexPath.row]
         performSegue(withIdentifier: "showEpisode", sender: episode)
