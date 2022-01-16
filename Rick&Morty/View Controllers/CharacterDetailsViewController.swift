@@ -27,8 +27,6 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupActivityIndicator()
         
         title = character.name
         characterDescription.text = character.description
@@ -42,17 +40,5 @@ class CharacterDetailsViewController: UIViewController {
             guard let episodesVC = navigationVC.topViewController as? EpisodesTableViewController else { return }
             episodesVC.character = character
         }
-    }
-}
-
-// MARK: - Private Methods
-extension CharacterDetailsViewController {
-    private func setupActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
-        activityIndicator.center = characterImage.center
-        
-        view.addSubview(activityIndicator)
     }
 }
