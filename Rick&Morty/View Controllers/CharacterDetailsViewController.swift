@@ -12,7 +12,7 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - IB Outlets
     
     @IBOutlet var characterDescription: UILabel!
-    @IBOutlet var characterImage: UIImageView! {
+    @IBOutlet var characterImage: CharacterImageView! {
         didSet {
             characterImage.layer.cornerRadius = characterImage.frame.width / 2
         }
@@ -33,13 +33,7 @@ class CharacterDetailsViewController: UIViewController {
         title = character.name
         characterDescription.text = character.description
         
-        DispatchQueue.global().async {
-            guard let imageData = ImageManager.shared.fetchImage(from: self.character.image) else { return }
-            DispatchQueue.main.async {
-                self.characterImage.image = UIImage(data: imageData)
-                self.activityIndicator.stopAnimating()
-            }
-        }
+        characterImage.fetchImage(from: character.image)
     }
     
     // MARK: - Navigation
